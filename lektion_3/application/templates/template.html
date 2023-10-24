@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exempel från lektion 3 </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href=><img src="../static/logo.jpg" alt="logo" width="80" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="# Bild på anka">Anka</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="# Bild på tupp">Tupp</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="# bild på uggla">Uggla</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../static/duck-8297668_1280.jpg" class="d-block w-100" alt="duck">
+          </div>
+          <div class="carousel-item">
+            <img src="../static/rooster-1867562_1280.jpg" class="d-block w-100" alt="rooster">
+          </div>
+          <div class="carousel-item">
+            <img src="../static/owl-783791_1280.jpg" class="d-block w-100" alt="owl">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+
+      <!-- Main content -->
+      <div class="container">
+        <h1 class="text-center p-5 mb-5">Flyg min vän!</h1>
+        <div class="w-100 bg-dark-subtle p-5 mb-5">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error vel, quo sapiente ex, quos animi aspernatur, sit dolore reprehenderit minus at voluptates deserunt quas molestiae dolorum debitis aut vero dolorem nihil recusandae eaque quam doloribus illo rem. Deleniti natus vel accusamus non quo voluptate recusandae dignissimos temporibus quis, porro suscipit consequuntur ullam quam sunt. Assumenda, id. Ullam, iusto, quam quos laudantium laboriosam et voluptate culpa sed tempora esse laborum totam iste repellendus, dignissimos beatae ad obcaecati error. Aspernatur tempore dolores temporibus consequuntur tenetur sit commodi eius porro quisquam aperiam laborum quas nihil nesciunt nemo architecto accusantium voluptatem iure, eum odio.</p>
+        </div>
+        
+        <!-- https://www.youtube.com/watch?v=g9b4LjYrsUQ -->
+
+        {{ data|safe }}
+
+
+      <!-- End main content -->
+      </div>
+      
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

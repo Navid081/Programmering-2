@@ -1,0 +1,20 @@
+{% extends "layout.html" %} <!--htlm layout hämtas-->
+{% block title %}Form{% endblock %} <!--ett byter ut -->
+{% block content %}
+<div class="container"> <!--Bootstrap, container är en ruta som täcker nästan hela hemsidan-->
+    <div class="row"> <!-- rader och kolumner i bootstrap-->
+        <div class="col">
+            <h1 class="text-center">Form</h1>
+            <form action="api" method="post">
+                <label for="year">Year:</label><br/>
+                <input type="text" id="year" name="year"><br/> <!--name är det som skickas som request till servern-->
+                <label for="ccode">Country code:</label><br/>
+                <input type="text" id="ccode" name="countrycode"><br/>
+                <!-- Här lägger ni senare till de fält ni vill ha -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!--I /form, när du skickar formuläret kommer den att hoppa på den platsen på servern-->

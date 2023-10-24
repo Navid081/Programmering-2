@@ -1,0 +1,16 @@
+Skapa en ny virtuell miljö och aktivera den
+----------------------------------------------
+cd lektion_1            # Välj rätt katalog
+python -m venv venv     # Skapar en virtuell miljö i en mapp som heter venv
+Venv\Scripts\activate   # Aktiverar din python-miljö och allt du installerar med pip hamnar där (windows)
+
+
+Installera ramverk
+----------------------------------------------
+pip install pycco
+pip install flask
+
+
+Spara sedan en lista över installerade ramverk:
+-----------------------------------------------
+pip list > requirenments.txt

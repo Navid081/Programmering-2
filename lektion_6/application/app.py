@@ -27,7 +27,7 @@ def index():
     context = ssl._create_unverified_context()
 
     # Hämta index.html och uppdatera den med hjälp av Jinja, skicka den sedan till klienten (browsern)
-    return render_template('index.html', data_url)
+    return render_template('index.html')
 
 
 @app.route("/form") 

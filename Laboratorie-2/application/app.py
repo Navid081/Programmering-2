@@ -48,6 +48,11 @@ def sixth_page():
 
 @app.route("/seventh")
 def seventh_page():
+    return render_template("custom-layout.html")
+
+
+@app.route("/eighth")
+def eighth_page():
     return render_template("layout.html")
 
 

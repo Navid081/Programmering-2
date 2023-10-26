@@ -1,0 +1,24 @@
+Detta används för att infoga variabler.
+rubrik = "Favoritglassar: "
+rubrik=rubrik
+<h2> {{ rubrik }}  </h2>
+
+
+Infogar listan 
+favorit_glass = ["Vanilj", "Chocolad", "Citron"]
+favorit_glass=favorit_glass
+{{ favorit_glass }}
+
+Utför logik i html filen med jinja2
+{% for topping in favorit_glass %}
+    {{ topping }}
+    {% endfor %}
+
+
+include används för att inkludera innehållet från en annan fil, i detta fall filen header.html
+{% include "header.html" %}
+
+
+Används för att ersätta det som står imellan, ersättningen infogas från annan fil.
+{% block "namn" %} {% endblock %} fil 1 (t ex i huvudmallen) fungerar som platshållare, 
+{% block "namn" %} {% endblock %} fil 2, det som står mellan de två hakparenteserna är det som ersätter det som står i fil 1.

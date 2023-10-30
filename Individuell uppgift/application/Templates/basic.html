@@ -1,0 +1,13 @@
+<!-- Detta är huvudmallen, som andra mallarna infogas in i med jinja2 -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} 1 {% endblock %}</title>
+        <style> h2 {text-align: center; }</style> <!-- https://www.w3schools.com/tags/tag_center.ASP - Alla h1 texter blir centrerade-->
+    </head>
+    <body>
+        {% block header %}<h2> Hej och välkommen! </h2>{% endblock %}
+    </body>
+</html>

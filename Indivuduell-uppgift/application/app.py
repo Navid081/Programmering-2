@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 import json
+import pandas as pd
 
 
 app = Flask(__name__)
@@ -33,25 +34,29 @@ def form_confirmation():
     year = request.form.get("year")
     month = request.form.get("month")
     day = request.form.get("day")
+    # infogar värdena så att vi får ut api för det användaren valde i formuläret
     api_url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json"
     
     # Hämta resultatet av api_url
     url_requested = requests.get(api_url)
     # läs innehållet som sträng
     url_string = url_requested.text
-    # Eftersom den är i json-format så omvandlas den
+    # Eftersom den är i json-format så omvandlas den till det som python kan tolka
     response_url_dict = json.loads(url_string)
     
+    # Gör om det till en pandas tabell
+    df = pd.DataFrame(response_url_dict)
+    # Gör nu om pandas tabellen till html kod.
+    data = df.to_html
     
-    return render_template("form_presented.html", api_url=api_url)
+    #####################################################################################################
+    # Kvar att göra:
+    # html-tabellen visas inte snyggt..
+    # manipulera datumen som efterfrågat.
+    
+    return render_template("form_presented.html", data=data)
 
 
-
-
-# Om användaren anger felaktig inmatning i url:en
-@app.route("/<name>")
-def wrong(name):
-    return f"You entered something wrong: {name} "
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ def form():
     return render_template("form.html")
 
  
-# formulär bekräftat
+# formulärets svarssida
 @app.route("/form_presented", methods=["POST"])
 def form_confirmation():
     # Hämtar det inmatade värdena i formuläret, tack Dennis!
@@ -34,28 +34,18 @@ def form_confirmation():
     year = request.form.get("year")
     month = request.form.get("month")
     day = request.form.get("day")
-    # infogar värdena så att vi får ut api för det användaren valde i formuläret
-    api_url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json"
-    
-    # Hämta resultatet av api_url
-    url_requested = requests.get(api_url)
-    # läs innehållet som sträng
-    url_string = url_requested.text
-    # Eftersom den är i json-format så omvandlas den till det som python kan tolka
-    response_url_dict = json.loads(url_string)
-    
-    # Gör om det till en pandas tabell
-    df = pd.DataFrame(response_url_dict)
-    # Gör nu om pandas tabellen till html kod.
-    data = df.to_html
-    
-    #####################################################################################################
-    # Kvar att göra:
-    # html-tabellen visas inte snyggt..
-    # manipulera datumen som efterfrågat.
-    
-    return render_template("form_presented.html", data=data)
+    url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json" # infogar värdena så att vi får ut api för det användaren valde i formuläret
 
+    response = requests.get(url)                    # Get-förfrågan med requests
+    response_string = response.text                 # Läser vår förfrågan och sparar den i en variabel
+    response_list = json.loads(response_string)     # Strängen vi får tillbaka omvandlas till pythonkod
+    df_response_list = pd.DataFrame(response_list)  # Gör en pandas DataFrame av den listan
+    df_html = df_response_list.to_html()            # Gör om pandas tabellen till html-kod
+
+    return render_template("form_presented.html", df_html=df_html)
+
+# Manipulera tiderna så att de presenteras på det efterfrågade sättet.
+# Fixa till tabellen så att det ser mer presentabelt ut.
 
 
 

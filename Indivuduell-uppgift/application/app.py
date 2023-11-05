@@ -14,6 +14,15 @@ def home():
 def information():
     return render_template("information.html")
 
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
+
+# Om användaren anger felaktig inmatning
+@app.route("/<name>")
+def wrong(name):
+    return f"You entered something wrong: {name} "
 
 
 if __name__ == "__main__":

@@ -10,6 +10,10 @@ app = Flask(__name__)
 def home():
     return render_template("homepage.html")
 
+@app.route("/information")
+def information():
+    return render_template("information.html")
+
 
 
 if __name__ == "__main__":

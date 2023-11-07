@@ -3,24 +3,17 @@
 {% block header %}<h1 style="text-align:center;">Form: </h1>{% endblock %}
 
 {% block content %}
-<!-- Padding: https://stackoverflow.com/questions/31554574/html-padding-style -->
-<p style="padding-left: 25px">
-    SE1 = Luleå - Norra Sverige </br>
-    SE2 = Sundsvall - Norra Mellansverige </br>
-    SE3 = Stockholm - Södra Mellansverige </br>
-    SE4 = Malmö - Södra Sverige </br>
-</p>
-<!-- Navbar tagen från bootstrap.com, fixade det med det du lärde mig och lite chatgpt-->
+<!-- Formulär tagen från bootstrap.com -->
 <!-- När vi skickar formuläret tar vi oss till endpoint /results -->
 <!-- metoden vi använder anges också, i det här fallet "post"-->
 <form action="/results" method="post">
     <h5>Prisklass: </h5>                        
     <select class="form-select" name="price_class"> <!-- name-attributet, för att hämta värdet i flask -->
         <option selected>Välj prisklass</option>
-        <option value="SE1">SE1 - Luleå - Norra Sverige</option>
-        <option value="SE2">SE2</option>
-        <option value="SE3">SE3</option>
-        <option value="SE4">SE4</option>
+        <option value="SE1">SE1 - Luleå - Norra Sverige</option> <!-- value är värdet som sätts på name-attrubutet -->
+        <option value="SE2">SE2 - Sundsvall / Norra Mellansverige</option>
+        <option value="SE3">SE3 - Stockholm / Södra Mellansverige</option>
+        <option value="SE4">SE4 - Malmö / Södra Sverige</option>
     </select>
 
     <h5>År: </h5>
@@ -48,12 +41,7 @@
         {% endfor %}
 
     <input type="submit" value="Submit" name="submit_button" />
-
 </form>
-
-
 {% endblock %}
-
-<!-- https://www.elprisetjustnu.se/api/v1/prices/2022/11-01_SE3.json -->
 
 {% block footer %}{% endblock %}

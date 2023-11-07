@@ -62,7 +62,7 @@ def slicing_ISO_8601(DataFrame, old_column_name, new_column_name):
     Returns:
         _type_: _Returns new modified column_"""
     
-    DataFrame[new_column_name] = DataFrame[old_column_name].str[11:16]    # Omvandla kolumnen till en sträng och slica den.
+    DataFrame[new_column_name] = DataFrame[old_column_name].str[11:16]   # slicar bort allt förutom hh:mm
     return DataFrame
 
 modified_time_start = slicing_ISO_8601(df, "time_start", "Start") # tydligen så kommer nya kolumnen läggas till i slutet på nuvarande

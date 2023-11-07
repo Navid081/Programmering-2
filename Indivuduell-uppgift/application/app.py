@@ -54,6 +54,11 @@ def results():
                            year=year,
                            month=month,
                            day=day)
+    
+        
+@app.errorhandler(404)
+def test_404(e):
+    return render_template("errorhandler.html")
 
 
 ######## 

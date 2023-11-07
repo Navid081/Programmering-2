@@ -68,3 +68,4 @@ print(df)
 
 
 # Det jag behöver göra är att ta ut en kolumn från en tabell. Ändra den. Sedan infoga den nya kolumnen...
+# just nu läggs den nya tabellen till i slutet av columnen, dvs ersätter inte den nya.

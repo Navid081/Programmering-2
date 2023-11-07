@@ -47,26 +47,26 @@ print("-"*50)
 print()
 
 
-# Funktionen tar en pandas-kolumn, klipper varje rad så att man endast får fram hh:mm
-# Det jag behöver göra är att ta bort den gamla kolumnen, eller att den nya kolumnen ska ersätta den gamla, positionsmässigt alltså.
-def slice_times(df, old_column_name, new_column_name):
-    """Funktionen tar en pandas-kolumn, klipper varje rad så att man endast får fram hh:mm
+# Kan jag ändra kolumnerna enklare?
+# Behövs detta ens? Jag kan göra detta i endpoint funktionen.
+def slice_times(DataFrame, old_column_name, new_column_name):
+    """Function takes a pandas DataFrame column and slices it
     Args:
-        df (_type_): hela pandas tabellen
-        old_column_name (_type_): namnet på den gamla kolumnen
-        new_column_name (_type_): namnet på den nya kolumnen man vill ha
+        DataFrame (_type_): Pandas DataFrame
+        old_column_name (_type_): Name of column one wish to change
+        new_column_name (_type_): Name of the new modified column
 
     Returns:
-        _type_: _Returns new column_
+        _type_: _Returns new modified column_
     """
-    df[new_column_name] = df[old_column_name].str[11:16]    # Omvandla kolumnen till en sträng och slica den.
-    return df
+    DataFrame[new_column_name] = DataFrame[old_column_name].str[11:16]    # Omvandla kolumnen till en sträng och slica den.
+    return DataFrame
 
-modified_time_start = slice_times(df, "time_start", "Time_start")
+modified_time_start = slice_times(df, "time_start", "Time_start") # Nya kolumnen läggs till i slutet på nuvarande
 modified_time_end = slice_times(df, "time_end", "Time_end")
+del df["time_start"]    # Tar bort gamla kolumner
+del df["time_end"]
 
+print("Ändrade kolumner: ")
 print(df)
 
-# Ändra funktionens beskrivning till engelska
-# Det jag behöver göra är att ta ut en kolumn från en tabell. Ändra den. Sedan infoga den nya kolumnen...
-# just nu läggs den nya tabellen till i slutet av columnen, dvs ersätter inte den nya.

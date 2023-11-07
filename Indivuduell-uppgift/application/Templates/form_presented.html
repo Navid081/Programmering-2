@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-{{df_html|safe}}
+<!-- Vill presentera det man valde i formuläret så att användaren kan se vad de ser resultatet för. -->
+<p>Prisklass: {{price_class|safe}}</p>
+<p>År: {{year|safe}}</p>
+<p>Månad: {{month|safe}}</p>
+<p>Dag: {{day|safe}}</p>
+<!-- Tabellen centreras inte, använde samma sätt för att centrera från homepage.html-->
+<p style="text-align:center;"> {{df_html|safe}} </p>
 {% endblock %}

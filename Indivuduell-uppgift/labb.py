@@ -46,6 +46,7 @@ print(slice_the_whole_string)
 print("-"*50)
 print()
 
+
 # Funktionen tar en pandas-kolumn, klipper varje rad så att man endast får fram hh:mm
 # Det jag behöver göra är att ta bort den gamla kolumnen, eller att den nya kolumnen ska ersätta den gamla, positionsmässigt alltså.
 def slice_times(df, old_column_name, new_column_name):
@@ -66,6 +67,6 @@ modified_time_end = slice_times(df, "time_end", "Time_end")
 
 print(df)
 
-
+# Ändra funktionens beskrivning till engelska
 # Det jag behöver göra är att ta ut en kolumn från en tabell. Ändra den. Sedan infoga den nya kolumnen...
 # just nu läggs den nya tabellen till i slutet av columnen, dvs ersätter inte den nya.

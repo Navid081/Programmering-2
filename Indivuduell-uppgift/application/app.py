@@ -34,7 +34,7 @@ def form_confirmation():
     year = request.form.get("year")
     month = request.form.get("month")
     day = request.form.get("day")
-    url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json" # infogar värdena så att vi får ut api för det användaren valde i formuläret
+    url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json" # infogar värdena så att vi får ut rätt url för det användaren valde i formuläret
 
     response = requests.get(url)                    # Get-förfrågan med requests
     response_string = response.text                 # Läser vår förfrågan och sparar den i en variabel
@@ -42,9 +42,20 @@ def form_confirmation():
     df_response_list = pd.DataFrame(response_list)  # Gör en pandas DataFrame av den listan
     df_html = df_response_list.to_html()            # Gör om pandas tabellen till html-kod
 
-    return render_template("form_presented.html", df_html=df_html)
+    return render_template("form_presented.html", 
+                           df_html=df_html,
+                           price_class=price_class,
+                           year=year,
+                           month=month,
+                           day=day)
 
+
+######## 
+#               Todo:
 # Manipulera tiderna så att de presenteras på det efterfrågade sättet.
+# Fixa i formuläret så att man kan endast välja datum som efterfrågat.
+    # Alternativ - längst bak i tiden 
+    #            - längst fram i tiden. morgondagens uppdateras dagen innan kl 13            
 # Fixa till tabellen så att det ser mer presentabelt ut.
 
 

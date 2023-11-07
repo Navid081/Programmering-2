@@ -11,13 +11,13 @@
     SE4 = Malmö - Södra Sverige </br>
 </p>
 <!-- Navbar tagen från bootstrap.com, fixade det med det du lärde mig och lite chatgpt-->
-<!-- När vi skickar formuläret tar vi oss till endpoint /form_presented -->
+<!-- När vi skickar formuläret tar vi oss till endpoint /results -->
 <!-- metoden vi använder anges också, i det här fallet "post"-->
-<form action="/form_presented" method="post">
+<form action="/results" method="post">
     <h5>Prisklass: </h5>                        
     <select class="form-select" name="price_class"> <!-- name-attributet, för att hämta värdet i flask -->
         <option selected>Välj prisklass</option>
-        <option value="SE1">SE1</option>
+        <option value="SE1">SE1 - Luleå - Norra Sverige</option>
         <option value="SE2">SE2</option>
         <option value="SE3">SE3</option>
         <option value="SE4">SE4</option>
@@ -26,6 +26,7 @@
     <h5>År: </h5>
     <select class="form-select" name="year"> <!-- year-->
         <option selected>Välj år</option>
+        <option value="2022">2022</option>
         <option value="2023">2023</option>
     </select>
 
@@ -47,7 +48,9 @@
         {% endfor %}
 
     <input type="submit" value="Submit" name="submit_button" />
+
 </form>
+
 
 {% endblock %}
 

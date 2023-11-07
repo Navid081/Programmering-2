@@ -27,14 +27,15 @@ def form():
 
  
 # formulärets svarssida
-@app.route("/form_presented", methods=["POST"])
-def form_confirmation():
+@app.route("/results", methods=["POST"])
+def results():
     # Hämtar det inmatade värdena i formuläret, tack Dennis!
     price_class = request.form.get("price_class")
     year = request.form.get("year")
     month = request.form.get("month")
     day = request.form.get("day")
-    url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json" # infogar värdena så att vi får ut rätt url för det användaren valde i formuläret
+    # infogar värdena så att vi får ut rätt url för det användaren valde i formuläret
+    url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json" 
 
     response = requests.get(url)                    # Get-förfrågan med requests
     response_string = response.text                 # Läser vår förfrågan och sparar den i en variabel
@@ -42,7 +43,7 @@ def form_confirmation():
     df_response_list = pd.DataFrame(response_list)  # Gör en pandas DataFrame av den listan
     df_html = df_response_list.to_html()            # Gör om pandas tabellen till html-kod
 
-    return render_template("form_presented.html", 
+    return render_template("results.html", 
                            df_html=df_html,
                            price_class=price_class,
                            year=year,

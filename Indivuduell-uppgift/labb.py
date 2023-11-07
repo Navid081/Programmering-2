@@ -15,3 +15,6 @@ response_url_dict = json.loads(url_string)
 df = pd.DataFrame(response_url_dict)
 # Gör om tabellen till html
 df = df.to_html
+
+for i in range(2022, 2024):
+    print(i)

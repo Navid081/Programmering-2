@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import json
 import pandas as pd
-from . import func
+from . import func # bara "import func"... chatgpt
 
 app = Flask(__name__)
 

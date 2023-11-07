@@ -47,10 +47,16 @@ print("-"*50)
 print()
 
 
+
+
+
+
+
+"""
 # Kan jag ändra kolumnerna enklare?
 # Behövs detta ens? Jag kan göra detta i endpoint funktionen.
 def slice_times(DataFrame, old_column_name, new_column_name):
-    """Function takes a pandas DataFrame column and slices it
+    #Function takes a pandas DataFrame column and slices it
     Args:
         DataFrame (_type_): Pandas DataFrame
         old_column_name (_type_): Name of column one wish to change
@@ -58,7 +64,7 @@ def slice_times(DataFrame, old_column_name, new_column_name):
 
     Returns:
         _type_: _Returns new modified column_
-    """
+    
     DataFrame[new_column_name] = DataFrame[old_column_name].str[11:16]    # Omvandla kolumnen till en sträng och slica den.
     return DataFrame
 
@@ -69,4 +75,7 @@ del df["time_end"]
 
 print("Ändrade kolumner: ")
 print(df)
+
+
+"""
 

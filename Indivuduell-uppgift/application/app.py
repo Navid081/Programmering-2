@@ -57,6 +57,7 @@ def results():
 # Fixa i formuläret så att man kan endast välja datum som efterfrågat.         
 # Fixa till tabellen så att det ser mer presentabelt ut.
 # Fixa testcases
+# Lägga till kod som fångar status 404.
 
 
 

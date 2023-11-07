@@ -54,10 +54,9 @@ def results():
 ######## 
 #               Todo:
 # Manipulera tiderna så att de presenteras på det efterfrågade sättet.
-# Fixa i formuläret så att man kan endast välja datum som efterfrågat.
-    # Alternativ - längst bak i tiden 
-    #            - längst fram i tiden. morgondagens uppdateras dagen innan kl 13            
+# Fixa i formuläret så att man kan endast välja datum som efterfrågat.         
 # Fixa till tabellen så att det ser mer presentabelt ut.
+# Fixa testcases
 
 
 

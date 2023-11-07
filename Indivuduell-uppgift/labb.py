@@ -31,5 +31,40 @@ print(selected_column)
 
 print()
 print("-"*50)
+print("Kolumnens datatyp:", type((df["time_start"]))) # Kolumnen är ingen sträng, utan är är "pandas.core.series.Series"
+print(type(str(df["time_start"])))  # Det går att omvandla hela kolumnen till en sträng
+print(type(df["time_start"][0])) # varje rad är en sträng däremot, utan konvertering, skapa en funktion som ändrar varje rad?
+print("-"*50)
 print()
-print(type(df["time_start"][0])) # Raden är en sträng, skapa en funktion som ändrar
+
+print("Before:")
+row = df["time_start"][23]
+print(row)
+print("After")
+slice_the_whole_string = row[11:16] # Gör allting på en och samma gång
+print(slice_the_whole_string)
+print("-"*50)
+print()
+
+# Funktionen tar en pandas-kolumn, klipper varje rad så att man endast får fram hh:mm
+# Det jag behöver göra är att ta bort den gamla kolumnen, eller att den nya kolumnen ska ersätta den gamla, positionsmässigt alltså.
+def slice_times(df, old_column_name, new_column_name):
+    """Funktionen tar en pandas-kolumn, klipper varje rad så att man endast får fram hh:mm
+    Args:
+        df (_type_): hela pandas tabellen
+        old_column_name (_type_): namnet på den gamla kolumnen
+        new_column_name (_type_): namnet på den nya kolumnen man vill ha
+
+    Returns:
+        _type_: _Returns new column_
+    """
+    df[new_column_name] = df[old_column_name].str[11:16]    # Omvandla kolumnen till en sträng och slica den.
+    return df
+
+modified_time_start = slice_times(df, "time_start", "Time_start")
+modified_time_end = slice_times(df, "time_end", "Time_end")
+
+print(df)
+
+
+# Det jag behöver göra är att ta ut en kolumn från en tabell. Ändra den. Sedan infoga den nya kolumnen...

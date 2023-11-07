@@ -1,1 +1,1 @@
-# Kontrollera filstrukturen?
+# Test mot validering av att sidan är online

@@ -32,11 +32,12 @@ print(selected_column)
 print()
 print("-"*50)
 print("Kolumnens datatyp:", type((df["time_start"]))) # Kolumnen är ingen sträng, utan är är "pandas.core.series.Series"
-print(type(str(df["time_start"])))  # Det går att omvandla hela kolumnen till en sträng
-print(type(df["time_start"][0])) # varje rad är en sträng däremot, utan konvertering, skapa en funktion som ändrar varje rad?
+print("Kolumnens datatyp efter omvandling:", type(str(df["time_start"])))  # Det går att omvandla hela kolumnen till en sträng
+print("Radens datatyp utan omvandling:", type(df["time_start"][0])) # varje rad är en sträng däremot, utan konvertering, skapa en funktion som ändrar varje rad?
 print("-"*50)
 print()
 
+# Eftersom det går att omvandla till sträng, kan jag slica raden
 print("Before:")
 row = df["time_start"][23]
 print(row)
@@ -46,29 +47,25 @@ print(slice_the_whole_string)
 print("-"*50)
 print()
 
+# Insåg att jag kan slica hela kolumner om jag omvandlar den till en sträng.
 
 
-
-
-
-
-"""
 # Kan jag ändra kolumnerna enklare?
-# Behövs detta ens? Jag kan göra detta i endpoint funktionen.
+# Behövs detta ens? Jag kan göra detta i endpoint funktionen. utan att skapa en funktion.
 def slice_times(DataFrame, old_column_name, new_column_name):
-    #Function takes a pandas DataFrame column and slices it
+    """Function takes a pandas DataFrame column and slices it
     Args:
         DataFrame (_type_): Pandas DataFrame
         old_column_name (_type_): Name of column one wish to change
         new_column_name (_type_): Name of the new modified column
 
     Returns:
-        _type_: _Returns new modified column_
+        _type_: _Returns new modified column_"""
     
     DataFrame[new_column_name] = DataFrame[old_column_name].str[11:16]    # Omvandla kolumnen till en sträng och slica den.
     return DataFrame
 
-modified_time_start = slice_times(df, "time_start", "Time_start") # Nya kolumnen läggs till i slutet på nuvarande
+modified_time_start = slice_times(df, "time_start", "Time_start") # tydligen så kommer nya kolumnen läggas till i slutet på nuvarande
 modified_time_end = slice_times(df, "time_end", "Time_end")
 del df["time_start"]    # Tar bort gamla kolumner
 del df["time_end"]
@@ -76,6 +73,4 @@ del df["time_end"]
 print("Ändrade kolumner: ")
 print(df)
 
-
-"""
 

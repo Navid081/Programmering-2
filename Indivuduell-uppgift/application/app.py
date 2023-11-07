@@ -2,7 +2,8 @@ from flask import Flask, render_template, request
 import requests
 import json
 import pandas as pd
-from . import func # bara "import func"... chatgpt
+from . import func # bara "import func" fungerade inte... chatgpt löste det.
+
 
 app = Flask(__name__)
 
@@ -26,7 +27,7 @@ def form():
     return render_template("form.html")
 
  
-# formulärets svarssida
+# formulärets svarssida - alltså hit action="/results" skickar oss
 @app.route("/results", methods=["POST"])
 def results():
     price_class = request.form.get("price_class")   # Hämtar det inmatade värdena i formuläret, tack Dennis!

@@ -6,7 +6,7 @@
 
 # Kan jag ändra kolumnerna enklare?
 # Behövs detta ens? Jag kan göra detta i endpoint funktionen.
-def slice_times(DataFrame, old_column_name, new_column_name):
+def slicing_ISO_8601(DataFrame, old_column_name, new_column_name):
     """Function takes a pandas DataFrame column and slices it
     Args:
         DataFrame (_type_): Pandas DataFrame

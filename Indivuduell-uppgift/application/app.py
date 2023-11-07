@@ -41,8 +41,8 @@ def results():
     response_list = json.loads(response_string)     # Strängen vi får tillbaka omvandlas till pythonkod
     df = pd.DataFrame(response_list)                # Gör en pandas DataFrame av den listan
     
-    func.slice_times(df, "time_start", "Time start")    # Skapar nya tabeller för tiderna enligt efterfrågat format (hh:mm)
-    func.slice_times(df, "time_end", "Time end")
+    func.slicing_ISO_8601(df, "time_start", "Time start")    # Skapar nya tabeller för tiderna enligt efterfrågat format (hh:mm)
+    func.slicing_ISO_8601(df, "time_end", "Time end")
     del df["time_start"]                                # Tar bort de gamla
     del df["time_end"]
 

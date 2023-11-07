@@ -1,3 +1,9 @@
+# Här kommer alla funktioner jag skapar att finnas.
+
+
+
+
+
 # Kan jag ändra kolumnerna enklare?
 # Behövs detta ens? Jag kan göra detta i endpoint funktionen.
 def slice_times(DataFrame, old_column_name, new_column_name):

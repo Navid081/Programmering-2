@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import json
 import pandas as pd
-from . import func # bara "import func" fungerade inte... chatgpt löste det.
+from . import func
 
 
 app = Flask(__name__)
@@ -15,38 +15,35 @@ def home():
     return render_template("homepage.html")
 
 
-# informationssida
 @app.route("/information")
 def information():
     return render_template("information.html")
 
 
-# Sida för formulär
 @app.route("/form", methods=["GET"])
 def form():
     return render_template("form.html")
 
  
-# formulärets svarssida - alltså hit action="/results" skickar oss
-@app.route("/results", methods=["POST"])
+@app.route("/results", methods=["POST"])                        # formulärets svarssida - alltså hit action="/results" skickar oss
 def results():
-    price_class = request.form.get("price_class")   # Hämtar det inmatade värdena i formuläret, tack Dennis!
+    price_class = request.form.get("price_class")               # Hämtar det inmatade värdena i formuläret, tack Dennis!
     year = request.form.get("year")
     month = request.form.get("month")
     day = request.form.get("day")
     url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{price_class}.json" # infogar värdena så att vi får ut rätt url för det användaren valde i formuläret
 
-    response = requests.get(url)                    # Get-förfrågan med requests
-    response_string = response.text                 # Läser vår förfrågan och sparar den i en variabel
-    response_list = json.loads(response_string)     # Strängen vi får tillbaka omvandlas till pythonkod
-    df = pd.DataFrame(response_list)                # Gör en pandas DataFrame av den listan
+    response = requests.get(url)                                # Get-förfrågan med requests
+    response_string = response.text                             # Läser vår förfrågan och sparar den i en variabel
+    response_list = json.loads(response_string)                 # Strängen vi får tillbaka omvandlas till pythonkod
+    df = pd.DataFrame(response_list)                            # Gör en pandas DataFrame av den listan
     
-    func.slicing_ISO_8601(df, "time_start", "Time start")    # Skapar nya tabeller för tiderna enligt efterfrågat format (hh:mm)
-    func.slicing_ISO_8601(df, "time_end", "Time end")
-    del df["time_start"]                                # Tar bort de gamla
+    func.slicing_iso_8601(df, "time_start", "Time start")       # Skapar nya tabeller för tiderna enligt efterfrågat format (hh:mm)
+    func.slicing_iso_8601(df, "time_end", "Time end")
+    del df["time_start"]                                        # Tar bort de gamla
     del df["time_end"]
 
-    df_html = df.to_html()                              # Gör om pandas tabellen till html-kod
+    df_html = df.to_html()                                      # Gör om pandas tabellen till html-kod
 
     return render_template("results.html", 
                            df_html=df_html,
@@ -56,9 +53,10 @@ def results():
                            day=day)
     
         
-@app.errorhandler(404)
-def test_404(e):
-    return render_template("errorhandler.html")
+@app.errorhandler(404)                                          # Fångar status 404, tack Dennis återigen!
+def test_404(e):                                                # https://www.geeksforgeeks.org/python-404-error-handling-in-flask/
+    return render_template("errorhandler.html")                 
+
 
 
 ######## 

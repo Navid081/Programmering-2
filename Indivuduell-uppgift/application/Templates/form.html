@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Form{% endblock %}
-{% block header %}<h1 style="text-align:center;">Form: </h1>{% endblock %}
+{% block header %}
+</br>
+</br>
+<h2 style="text-align:center;">Form</h2>
+{% endblock %}
 
 {% block content %}
+</br>
+</br>
 <!-- Formulär tagen från bootstrap.com -->
 <!-- När vi skickar formuläret tar vi oss till endpoint /results -->
 <!-- metoden vi använder anges också, i det här fallet "post"-->
 <form action="/results" method="post">
     <h5>Prisklass: </h5>                        
-    <select class="form-select" name="price_class"> <!-- name-attributet, för att hämta värdet i flask -->
+    <select class="form-select form-control-sm" name="price_class"> <!-- name-attributet, för att hämta värdet i flask -->
         <option selected>Välj prisklass</option>
         <option value="SE1">SE1 - Luleå - Norra Sverige</option> <!-- value är värdet som sätts på name-attrubutet -->
         <option value="SE2">SE2 - Sundsvall / Norra Mellansverige</option>

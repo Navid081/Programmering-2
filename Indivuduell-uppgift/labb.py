@@ -51,26 +51,23 @@ print()
 # Insåg att jag kan slica hela kolumner om jag omvandlar den till en sträng.
 
 
-# Kan jag ändra kolumnerna enklare?
-# Behövs detta ens? Jag kan göra detta i endpoint funktionen. utan att skapa en funktion.
 def slicing_ISO_8601(DataFrame, old_column_name, new_column_name):
-    """Function takes a pandas DataFrame column and slices column, creates a new column, and deletes the old one.
+    """Function takes a pandas column, slices iso-8601 to hh:mm, creates a new column, and deletes the old one.
     Args:
         DataFrame (_type_): Pandas DataFrame
-        old_column_name (_type_): Name of column one wish to change
-        new_column_name (_type_): Name of the new modified column
-
+        old_column_name (_type_): Name of existing column
+        new_column_name (_type_): Name of the new column
     Returns:
         _type_: _Returns new modified column_"""
-    
     DataFrame[new_column_name] = DataFrame[old_column_name].str[11:16]  # slicar bort allt förutom hh:mm
     del DataFrame[old_column_name]                                      #
     return DataFrame
 
+
+
 modified_time_start = slicing_ISO_8601(df, "time_start", "Start") # tydligen så kommer nya kolumnen läggas till i slutet på nuvarande
 modified_time_end = slicing_ISO_8601(df, "time_end", "End")
-#del df["time_start"]    # Tar bort gamla kolumner
-#del df["time_end"]
+
 
 print("Ändrade kolumner: ")
 print(df)
@@ -78,11 +75,5 @@ print(df)
 
 print("*" * 100)
 
-#del df["EXR"]
-
 print(df)
-
-# Test för att se att i pandas tabellen finns det "SEK_per_kWh", "EUR_per_kWh" osv, att dessa kolumnnman finns i tabellen.
-
-
 

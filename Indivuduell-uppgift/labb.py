@@ -74,3 +74,6 @@ print("Ändrade kolumner: ")
 print(df)
 
 
+print("*" * 100)
+
+

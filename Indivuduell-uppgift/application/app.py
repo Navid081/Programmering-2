@@ -16,7 +16,7 @@ def home():
 def form():
     return render_template("form.html")
 
- 
+
 @app.route("/results", methods=["POST"])                        # Formulärets svarssida - alltså hit action="/results" skickar oss.
 def results():
     price_class = request.form.get("price_class")               # Hämtar det inmatade värdena i formuläret och infogar det i url.
@@ -40,7 +40,7 @@ def results():
 
 @app.errorhandler(404)                                          # Fångar status 404.
 def test_404(e):                                                # https://www.geeksforgeeks.org/python-404-error-handling-in-flask/
-    return render_template("404.html")                 
+    return render_template("404.html")
 
 
 

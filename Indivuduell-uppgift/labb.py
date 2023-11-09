@@ -75,5 +75,10 @@ print(df)
 
 print("*" * 100)
 
-print(df)
 
+try:
+    test = requests.get("http://127.0.0.1:5000")
+    test.raise_for_status()  # Kontrollera om det finns något HTTP-fel i svaret
+    print("Sidan är online!")
+except requests.ConnectionError:
+    print("Sidan är ej online!")

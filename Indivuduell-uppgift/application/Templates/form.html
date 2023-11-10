@@ -12,7 +12,7 @@
 <!-- Formulär tagen från bootstrap.com -->
 <!-- När vi skickar formuläret tar vi oss till endpoint /results -->
 <!-- metoden vi använder anges också, i det här fallet "post"-->
-<form action="/results" method="post">
+<form action="/results" method="post" class="mx-auto text-center my-5">
     <h5>Prisklass: </h5>                        
     <select class="form-select form-control-sm" name="price_class"> <!-- name-attributet, för att hämta värdet i flask -->
         <option selected>Välj prisklass</option>
@@ -48,6 +48,30 @@
 
     <input type="submit" value="Submit" name="submit_button" />
 </form>
+
+
+<!-- BEGRÄNSA DATUM-->
+<!-- DETTA FUNGERAR INTE -->
+<script>
+    function validateForm() {
+        var year = document.getElementsByName("year")[0].value;
+        var month = document.getElementsByName("month")[0].value;
+        var day = document.getElementsByName("day")[0].value;
+        var selectedDate = new Date(year, month - 1, day);  // Month is zero-based
+    
+        // Set min and max dates
+        var minDate = new Date("2022-11-01");
+        var maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 1);  // Allow selecting up to one day in the future
+    
+        if (selectedDate < minDate || selectedDate > maxDate) {
+            alert("Felaktig inmatning: Välj ett datum mellan 2022-11-01 och en dag framåt i tiden.");
+            return false;
+        }
+    
+        return true;
+    }
+</script>
 {% endblock %}
 
 {% block footer %}{% endblock %}

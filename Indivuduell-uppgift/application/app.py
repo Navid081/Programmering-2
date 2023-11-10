@@ -12,14 +12,16 @@ def home():
     return render_template("homepage.html")
 
 
+# Formulär
 @app.route("/form")
 def form():
     return render_template("form.html")
 
 
+# Resultat
 @app.route("/results", methods=["POST"])                    # Formulärets svarssida - alltså hit action="/results" skickar oss.
 def results():
-    price_class = request.form.get("price_class")           # Hämtar det inmatade värdena i formuläret och infogar det i url.
+    price_class = request.form.get("price_class")           # Hämtar de inmatade värdena i formuläret och infogar det i url.
     year = request.form.get("year")
     month = request.form.get("month")
     day = request.form.get("day")
@@ -38,15 +40,19 @@ def results():
                            day=day)
 
 
-@app.errorhandler(404)                                      # Fångar status 404.
-def test_404(e):                                            # https://www.geeksforgeeks.org/python-404-error-handling-in-flask/
+# Svarskod: 404
+@app.errorhandler(404)                                      # Servern kan inte hitta resursen. Tack Dennis! 
+def not_found(e):                                           # https://www.geeksforgeeks.org/python-404-error-handling-in-flask/
     return render_template("404.html")
 
 
 
-######## 
+
 #               Todo:
-# Fixa testcases
-# Fixa så att man endast kan välja inom ett visst datum. 2022-11-01 och framåt.
-# Fixa till tabellen så att det ser mer presentabelt ut. Ha kvar Exchange rate?
-# https://pandas.pydata.org/pandas-docs/version/1.1/user_guide/style.html#:~:text=You%20can%20apply%20conditional%20formatting,styling%20is%20accomplished%20using%20CSS.
+
+# Börja med att skriva klart testcase mot dina funktioner.
+
+# Fixa så att man endast kan välja inom ett visst datum. 2022-11-01 och 1 dag framåt.
+
+# Fixa bootstrap så att formuläret är centrerat och så att pandas tabellen också är centrerat!
+# klipp ut och klistra in allting in i lektion 6? Där fungerar bootstrap jue...

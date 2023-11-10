@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from . import func
+from application import func
 from datetime import datetime, timedelta                    # Används för att hämta dagens datum
 
 
@@ -22,7 +22,7 @@ def form():
 
 
 # Formulärets svarssida - alltså hit action="/results" skickar oss.
-@app.route("/results", methods=["POST"])                    # Formulärets svarssida - alltså hit action="/results" skickar oss.
+@app.route("/results", methods=["POST"])                  
 def results():
     price_class = request.form.get("price_class")           # Hämtar det inmatade värdet för prisklass.
     date = request.form.get("date")                         # Hämtar värdet från date-input-formuläret.

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Form{% endblock %}
+{% block title %}Formulärsida{% endblock %}
 {% block header %}<h2 style="text-align:center;">Utforska Elpriser</h2>{% endblock %}
 
 {% block content %}
@@ -31,17 +31,15 @@
     </div>
 </form>
 {% endblock %}
-
 {% block footer %}{% endblock %}
 
 <!-- Gjorde först flera dropdown menyer för år, månad och dag
 Men det blev för krångligt att begränsa datumen på det här sättet.
-Tänkte först att begränsa det på detta spår:
+Tänkte först att begränsa det i stil med:
 {% if year == 2022 %}}
     { så ska månaderna och dagarna begränsas till 1a nov}
 {% endif %}
 
-Fastnade väldigt länge här och fick det inte att fungera med chatgpt heller
-så jag övergav det helt och fixade kalendern istället-->
+Fastnade väldigt länge här så jag övergav det helt och fixade kalendern istället-->
 
 

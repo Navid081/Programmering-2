@@ -4,7 +4,7 @@ import pytest
 import requests
 
 
-def test_firstpage_online():                            # Test för att se om förstasidan körs eller inte.
+def test_firstpage_online():                                                # Test för att se om förstasidan körs eller inte.
     assert requests.get("http://127.0.0.1:5000")
 
 
@@ -25,15 +25,7 @@ def test_url_2022_10_25_exists():                                           # Hi
     url = "https://www.elprisetjustnu.se/api/v1/prices/2022/10-25_SE3.json"
     assert requests.get(url)
 
+
 def test_url_2022_10_24_exists():                                           # Detta test ska misslyckas för att det inte finns data för detta datum.
     url = "https://www.elprisetjustnu.se/api/v1/prices/2022/10-24_SE3.json" # Det står fel på deras hemsida https://www.elprisetjustnu.se/elpris-api
     assert requests.get(url)
-
-
-
-
-
-
-
-
-

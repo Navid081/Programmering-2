@@ -21,3 +21,4 @@ def test_api_url_to_pandas_dataframe():                                 # Testar
 
     assert isinstance(df_result, pd.DataFrame)                          # Kontrollera om det returnerade värdet är en DataFrame.
                                                                         # https://www.w3schools.com/python/ref_func_isinstance.asp
+

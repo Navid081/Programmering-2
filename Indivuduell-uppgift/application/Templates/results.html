@@ -1,24 +1,15 @@
 {% extends "base.html" %}
 
+{% block header %}<h2 style="text-align:center;">Resultat för: {{ date|safe }} i prisklass: {{ price_class|safe }}</h2>{% endblock %}
+
 {% block content %}
-<!-- Vill presentera det man valde i formuläret så att användaren kan se vad det är man ser resultatet för. -->
-<p>Prisklass: {{price_class|safe}}</p>
-<p>År: {{year|safe}}</p>
-<p>Månad: {{month|safe}}</p>
-<p>Dag: {{day|safe}}</p>
-<!-- Tabellen centreras inte, använde samma sätt för att centrera från homepage.html-->
+</br>
+<p style="text-align:center;">Här är elpriserna för den valda dagen, utforska och analysera priserna nedan.</p>
 
-<!-- Anpassad CSS för att centrera tabellen -->
-<style>
-    .center-table {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Anpassa höjden efter behov */
-    }
-</style>
-
+<style>.center-table {display: flex; justify-content: center; align-items: center;}</style>
 <div class="center-table">
-    <p> {{df_html|safe}} </p>
+    <p> {{ df_html|safe }} </p>
 </div>
 {% endblock %}
+
+

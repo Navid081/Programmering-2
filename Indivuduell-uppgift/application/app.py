@@ -50,9 +50,11 @@ def not_found(e):                                           # https://www.geeksf
 
 #               Todo:
 
-# Börja med att skriva klart testcase mot dina funktioner.
-
 # Fixa så att man endast kan välja inom ett visst datum. 2022-11-01 och 1 dag framåt.
 
 # Fixa bootstrap så att formuläret är centrerat och så att pandas tabellen också är centrerat!
 # klipp ut och klistra in allting in i lektion 6? Där fungerar bootstrap jue...
+
+
+
+##################################

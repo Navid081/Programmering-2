@@ -8,5 +8,17 @@
 <p>Dag: {{day|safe}}</p>
 <!-- Tabellen centreras inte, använde samma sätt för att centrera från homepage.html-->
 
-<p> {{df_html|safe}} </p>
+<!-- Anpassad CSS för att centrera tabellen -->
+<style>
+    .center-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Anpassa höjden efter behov */
+    }
+</style>
+
+<div class="center-table">
+    <p> {{df_html|safe}} </p>
+</div>
 {% endblock %}

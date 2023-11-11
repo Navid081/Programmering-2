@@ -41,7 +41,7 @@ def results():
                             price_class=price_class,
                             date=date,
                            day=day)
-    except Exception:
+    except Exception:                                           # Om man försöker nå morgondagens elpriser innan de har blivit uppdaterade.
         return render_template("404.html")             
         
 

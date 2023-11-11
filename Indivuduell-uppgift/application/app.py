@@ -16,9 +16,9 @@ def home():
 # Formulär
 @app.route("/form")
 def form():
-    today = datetime.now().date()                           # Vi hämtar dagens datum
-    tomorrow = today + timedelta(days=1)                    # Vi lägger till 1 dag
-    return render_template("form.html", tomorrow=tomorrow)  # Skickar morgondagens datum till till form.html med jinja2
+    today = datetime.now().date()                               # Vi hämtar dagens datum
+    tomorrow = today + timedelta(days=1)                        # Vi lägger till 1 dag
+    return render_template("form.html", tomorrow=tomorrow)      # Skickar morgondagens datum till till form.html med jinja2
 
 
 # Formulärets svarssida - alltså hit action="/results" skickar oss.
